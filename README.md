@@ -1,5 +1,10 @@
+## 《API管理平台》
+## 一、简介
 
-## Features
+### 1.1 概述
+本系统是一个强大易用的API管理平台，提供API的"管理"、"文档"、"Mock"和"测试"等功能。
+
+### 1.2 特性
 - 1、极致简单：交互简洁，一分钟上手；
 - 2、项目隔离：API以项目为维度进行拆分隔离；
 - 3、分组管理：单个项目内的API支持自定义分组进行管理；
@@ -10,3 +15,232 @@
 - 8、Mock：支持为API定义Mock数据并制定数据响应格式，从而快速提供Mock接口，加快开发进度；
 - 9、在线测试：支持在线对API进行测试并保存测试数据，提供接口测试效率；
 - 10、权限控制：支持以业务线为维度进行用户权限控制，分配权限才允许操作业务线下项目接口和数据类型，否则仅允许查看；
+
+### 1.3 环境
+- Servlet/JSP Spec：3.0/2.2
+- JDK：1.7+
+- Tomcat：7+/Jetty8+
+- Mysql：5.6+
+- Maven：3+
+
+## 二、快速部署
+
+### 2.1 初始化“API数据库”
+请下载项目源码并解压，获取 "初始化SQL脚本"，脚本位置：
+```
+/项目/doc/db/api-mysql.sql
+```
+
+### 2.2 编译源码
+解压源码,按照maven格式将源码导入IDE, 使用maven进行编译即可，源码结构如下：
+
+```
+- 项目
+    - doc
+    - api-admin ：API管理中心项目；
+```
+
+### 2.3 配置JDBC连接
+在以下项目文件中设置应用的JDBC连接；
+```
+/项目/api-admin/src/main/resources/application.properties
+```
+
+### 2.4 部署
+部署运行 "api-admin" 后，即可访问：
+
+### 2.5 集群(可选)
+API管理中心支持集群部署，提升系统可用性。
+
+集群部署时，保持各项目JDBC配置一致即可；
+
+## 三、项目管理
+
+系统中API以项目为单位进行管理，因此首先需要管理项目；项目管理界面如下图所示；
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img01.png "在这里输入图片标题")
+
+
+### 3.1 新建项目
+进入项目管理界面，点击右侧"+新增项目"按钮可新建项目，如下图所示：
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img02.png "在这里输入图片标题")
+
+项目属性说明：
+    
+    业务线：所属业务线
+    项目名称：项目的名称；
+    项目描述：项目的描述信息；
+    根地址(线上)：项目线上环境根地址，项目中的API共用该根地址；
+    根地址(预发布)：项目预发布环境根地址；
+    根地址(测试)：项目测试环境根地址；
+
+### 3.2 更新项目
+进入项目管理界面，点击项目右侧的"编辑"按钮可更新项目信息；
+
+### 3.3 删除项目
+
+进入项目管理界面，点击项目右侧的"删除"按钮可删除项目信息；注意，项目中存在API时不允许删除；
+
+
+## 四、API管理
+在项目管理界面，点击项目右侧的"进入项目"按钮，可进入接口管理界面：
+
+### 4.1 API分组管理
+
+- 新增API分组
+
+如下图，点击"左侧接口分组区域"右上角的"+"按钮，可新增AIP接口分组；（点击"全部"将会展示项目中所有分组下的接口；"默认分组"为系统分组，不允许删除；）
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img03.png "在这里输入图片标题")
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img04.png "在这里输入图片标题")
+
+接口分组属性说明：
+
+    分组名称：分组的名称
+    分组排序：分组的排序顺序，数字类型，值越小越靠前；
+    
+- 更新API分组
+
+在"左侧接口分组区域"，点击对应的API分组，右侧将会展示该分组下API接口列表；点击接口列表顶部的"编辑分组"按钮（新增的API分组才会有该功能），可修改API分组信息；
+
+- 删除API分组
+
+在"左侧接口分组区域"，点击对应的API分组，右侧将会展示该分组下API接口列表；点击接口列表顶部的"删除分组"按钮（新增的API分组才会有该功能），可修改API分组信息；
+
+### 4.2 API管理
+
+- 新增API
+
+如下图，在API接口管理界面，点击接口列表顶部的"新增接口"按钮，可进入新增接口界面；
+在新增接口界面，如下图所示，可以设置接口的API状态、请求方法、请求URL、请求头部、请求参数、响应结果、响应结果格式、响应结果参数、API备注等等信息；
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img05.png "在这里输入图片标题")
+
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img06.png "在这里输入图片标题")
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img07.png "在这里输入图片标题")
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img08.png "在这里输入图片标题")
+
+API属性说明：
+
+    基础信息：
+        URL：接口请求的URL地址，注意此处为相对地址，根地址从所属项目的根地址属性上获取；
+        分组：接口所属的分组；
+        Method：请求方法，如POST、GET等；
+        接口状态：接口的状态，在接口列表中，启用状态接口用绿色圆圈标识，维护状态接口用黄色圆圈标识，废弃状态接口用灰色圆圈标识；
+        接口名称：接口的名称；
+    请求头部：同一接口支持设置多个请求头部；
+        头部标签：请求头部的类型，如Accept-Encoding；
+        头部内容：请求头部的值，如Accept-Encoding头部标签对应的值UTF-8；
+    请求参数：同一接口支持设置多个请求参数；
+        参数：参数的名称；
+        说明：参数的说明；
+        类型：该参数的数据类型，如String；
+        是否必填：该参数是否必填；
+    响应结果：分别支持设置 "成功响应结果" 和 "失败响应结果"，作为接口响应数据的参考；
+        响应数据类型(MIME)：响应结果类型，如JSON、XML等；
+        响应结果数据：响应结果的数据，如响应结果类型为JSON时可设置响应结果数据为一段JSON数据；
+    响应数据类型：可绑定数据结构，直观查看接口的响应数据的格式化信息。
+    接口备注：markdown方式的接口备注；
+
+- 更新API
+
+在API接口管理界面，点击接口右侧的"更新接口图标"按钮，可进入更新接口界面；
+
+- 删除API
+
+在API接口管理界面，点击接口右侧的"删除接口图标"按钮，可删除接口数据；
+
+### 4.3 API-Mock
+
+- 新增Mock数据
+在API接口管理界面，点击接口名称，进入"接口详情页"，在接口详情页的"Mock数据"模块右上角点击"+Mock数据"按钮，可新增Mock数据；
+
+Mock数据属性说明：
+
+    数据类型(MIME)：响应结果类型，如JSON、XML等；
+    结果数据：响应结果的数据，如响应结果类型为JSON时可设置响应结果数据为一段JSON数据；
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img09.png "在这里输入图片标题")
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img10.png "在这里输入图片标题")
+
+- 更新Mock数据
+在"接口详情页"的"Mock数据"模块，点击Mock数据列表右侧的"修改"按钮，可修改Mock数据；
+
+- 删除Mock数据
+
+在"接口详情页"的"Mock数据"模块，点击Mock数据列表右侧的"删除"按钮，可删除Mock数据；
+
+- 运行Mock数据
+
+在"接口详情页"的"Mock数据"模块，点击Mock数据列表右侧的"运行"按钮，可运行Mock数据；
+系统将会为每一条Mock数据生成一个唯一的Mock连接，访问该连接将会按照设置的数据类型如JSON返回对应格式的Mock数据，如下图所示；
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img11.png "在这里输入图片标题")
+
+
+### 4.4 API-测试
+
+- API-测试
+进入"接口详情页"，点击"Test历史"模块右上角的"+接口测试"按钮，可进入"接口测试界面"，
+该界面将会自动初始化接口URL（测试界面支持选择运行环境，将会自动生成不同环境的完整URL连接）和参数等信息。
+只需要填写测试的参数值，点击下方"运行"按钮，即可发起一次接口请求，请求结果将会在下方显示出来：
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img12.png "在这里输入图片标题")
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img13.png "在这里输入图片标题")
+
+- 保存Test历史
+
+在"接口测试界面"，在进行接口测试后, 点击下方"保存"按钮将会把本次测试数据（接口URL，测试参数等信息）保存下来。
+在"接口详情页"的"Test历史"模块可查看所有的接口测试历史记录。点击一次测试记录右侧的"运行"按钮，将会进入到本次测试记录对应的接口测试界面，还原当时测试时使用的测试数据；
+
+- 删除Test历史
+
+在"接口详情页"的"Test历史"模块，点击测试历史记录右侧的"删除"按钮可删除本条记录；
+
+
+## 五、数据结构管理
+支持维护格式化的数据结构，更加直观方便的查看数据信息。
+
+接口响应数据支持绑定数据结构，从而更加直观查看接口的响应数据的格式化信息。
+
+数据结构属性支持嵌套引用，也支持被复用。
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img14.png "在这里输入图片标题")
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img15.png "在这里输入图片标题")
+
+
+## 六、用户管理
+
+系统提供两种用户角色：
+- 管理员：拥有系统所有权限；
+- 普通用户：默认只拥有项目接口和数据类型的只读权限，被分配业务线权限后，才允许操作业务线下项目和接口等；
+
+管理员角色登陆之后，可管理系统用户信息，如添加用户、设置用户角色，分配权限等。
+
+不同角色用户均可以通过右上角 "修改密码" 功能修改个人登陆密码；
+
+系统初始化时，默认提供了两个示例用户：admin（管理员）、user（普通用户），密码默认为 123456；
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img16.png "在这里输入图片标题")
+
+
+## 七、业务线管理
+业务线提供两种功能：
+- 分类管理：项目接口归属于业务线下，可通过业务线隔离不同的项目接口，方便管理；
+- 权限控制：系统以业务线为维度进行权限控制，用户只有拥有业务线权限，才允许操作业务线下项目接口，否则只允许查看；
+
+系统初始化时，默认一个业务线 "默认业务线"，可以根据情况调整；
+
+![输入图片说明](https://raw.githubusercontent.com/haiyuanak47/lhy-api/master/doc/images/doc-img17.png "在这里输入图片标题")
+
+
+
+---
