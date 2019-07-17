@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhy.api.admin.dao.IXxlApiGlobalParamDao">
+	
+	<resultMap id="XxlApiGlobalParam" type="com.lhy.api.admin.core.model.XxlApiGlobalParam" >
+		<result column="id" property="id" />
+		<result column="project_id" property="projectId" />
+		<result column="global_query_params" property="globalQueryParams" />
+		<result column="add_time" property="addTime" />
+		<result column="update_time" property="updateTime" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		t.`id`,
+		t.`project_id`,
+		t.`global_query_params`,
+		t.`add_time`,
+		t.`update_time`
+	</sql>
+
+	<insert id="add" parameterType="com.lhy.api.admin.core.model.XxlApiGlobalParam" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO xxl_api_global_param (
+			`project_id`,
+			`global_query_params`,
+			`add_time`,
+			`update_time`
+		) VALUES (
+			#{projectId},
+			#{globalQueryParams},
+			NOW(),
+			NOW()
+		);
+	</insert>
+
+	<update id="update" parameterType="com.lhy.api.admin.core.model.XxlApiGlobalParam" >
+		UPDATE xxl_api_global_param
+		SET
+			`global_query_params` = #{globalQueryParams},
+			 `update_time` = NOW()
+		 WHERE `id` = #{id}
+
+	</update>
+
+	<delete id="delete" parameterType="java.lang.Integer" >
+		DELETE FROM xxl_api_global_param
+		WHERE id = #{id}
+	</delete>
+
+	<select id="load" parameterType="java.lang.Integer" resultMap="XxlApiGlobalParam">
+		SELECT <include refid="Base_Column_List" />
+		FROM xxl_api_global_param AS t
+		WHERE t.id = #{id}
+	</select>
+
+	<select id="loadByProjectId" parameterType="java.lang.Integer" resultMap="XxlApiGlobalParam">
+		SELECT <include refid="Base_Column_List" />
+		FROM xxl_api_global_param AS t
+		WHERE t.project_id = #{projectId}
+	</select>
+</mapper>
