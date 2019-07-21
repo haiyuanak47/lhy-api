@@ -168,7 +168,7 @@
                                     </div>
                                     <label class="col-sm-1 control-label">值</label>
                                     <div class="col-sm-5 item">
-                                        <input type="text" class="form-control value" value="<#if testId gt 0>${item.value}<#else></#if>" >
+                                        <input type="text" class="form-control value" value="<#if testId gt 0>${item.value?replace('"', '&quot;')}<#else></#if>" >
                                     </div>
                                     <button type="button" class="col-sm-1 btn btn-box-tool delete" ><i class="fa fa-fw fa-close"></i></button>
                                 </div>
@@ -228,7 +228,7 @@
                                     </div>
                                     <label class="col-sm-1 control-label">Value</label>
                                     <div class="col-sm-5 item">
-                                        <input type="text" class="form-control value" value="${value}" readonly>
+                                        <input type="text" class="form-control value" value="${value?replace('"', '&quot;')}" readonly>
                                     </div>
                                     <button type="button" class="col-sm-1 btn btn-box-tool delete" ><i class="fa fa-fw fa-close"></i></button>
                                 </div>

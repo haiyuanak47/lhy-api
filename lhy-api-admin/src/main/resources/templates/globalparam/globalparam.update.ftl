@@ -89,7 +89,7 @@
                                     </div>
                                    <#-- <label class="col-xs-1 control-label">值</label>-->
                                     <div class="col-sm-2 item">
-                                        <input type="text" class="form-control value" value="${queryParam.value}" >
+                                        <input type="text" class="form-control value" value="${queryParam.value?replace('"', '&quot;')}" >
                                     </div>
                                    <#-- <label class="col-sm-1 control-label">说明</label>-->
                                     <div class="col-sm-3 item">

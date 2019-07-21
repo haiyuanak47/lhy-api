@@ -122,6 +122,8 @@ $(function() {
 			$('#requestHeaders_parent').find('.requestHeaders_item').each(function () {
 				var key = $(this).find('.key').val();
 				var value = $(this).find('.value').val();
+				/*reg = new RegExp('"',"g");
+				value = value!=null?value.replace(reg,'&quot;'):value;*/
 				if (key) {
 					requestHeaderList.push({
 						'key':key,
@@ -146,6 +148,8 @@ $(function() {
 			$('#queryParams_parent').find('.queryParams_item').each(function () {
 				var key = $(this).find('.key').val();
 				var value = $(this).find('.value').val();
+				/*reg = new RegExp('"',"g");
+				value = value!=null?value.replace(reg,'&quot;'):value;*/
 				if (key) {
 					queryParamList.push({
 						'key':key,
@@ -171,6 +175,8 @@ $(function() {
 				//var key = $(this).find('.key').val();
 				var key = $(this).find('.key').find("option:selected").data('key');
 				var value = $(this).find('.value').val();
+				/*reg = new RegExp('"',"g");
+				value = value!=null?value.replace(reg,'&quot;'):value;*/
 				if (key) {
 					globalQueryParamList.push({
 						'key':key,
@@ -244,6 +250,8 @@ $(function() {
 			$('#requestHeaders_parent').find('.requestHeaders_item').each(function () {
 				var key = $(this).find('.key').val();
 				var value = $(this).find('.value').val();
+				reg = new RegExp('"',"g");
+				value = value!=null?value.replace(reg,'&quot;'):value;
 				if (key) {
 					requestHeaderList.push({
 						'key':key,
@@ -268,6 +276,8 @@ $(function() {
 			$('#queryParams_parent').find('.queryParams_item').each(function () {
 				var key = $(this).find('.key').val();
 				var value = $(this).find('.value').val();
+				reg = new RegExp('"',"g");
+				value = value!=null?value.replace(reg,'&quot;'):value;
 				if (key) {
 					queryParamList.push({
 						'key':key,
@@ -297,6 +307,8 @@ $(function() {
 				//var key = $(this).find('.key').val();
 				var key = $(this).find('.key').find("option:selected").data('key');
 				var value = $(this).find('.value').val();
+				reg = new RegExp('"',"g");
+				value = value!=null?value.replace(reg,'&quot;'):value;
 				if (key) {
 					globalQueryParamList.push({
 						'key':key,

@@ -84,6 +84,8 @@ $(function() {
 					var name = $(this).find('.name').val();
 					var value = $(this).find('.value').val();
 					var desc = $(this).find('.desc').val();
+					reg = new RegExp('"',"g");
+					value = value!=null?value.replace(reg,'&quot;'):value;
 					if (name) {
 						queryParamList.push({
 							'notNull':notNull,
