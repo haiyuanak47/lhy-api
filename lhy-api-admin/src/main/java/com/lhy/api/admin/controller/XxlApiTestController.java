@@ -42,7 +42,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/test")
-public class XxlApiTestController {
+public class XxlApiTestController extends BaseController{
 	private static Logger logger = LoggerFactory.getLogger(XxlApiTestController.class);
 
 	@Resource

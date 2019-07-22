@@ -25,7 +25,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/project")
-public class XxlApiProjectController {
+public class XxlApiProjectController extends BaseController{
 
 	@Resource
 	private IXxlApiProjectDao xxlApiProjectDao;

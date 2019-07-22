@@ -22,7 +22,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/group")
-public class XxlApiGroupController {
+public class XxlApiGroupController extends BaseController{
 
 	@Resource
 	private IXxlApiProjectDao xxlApiProjectDao;

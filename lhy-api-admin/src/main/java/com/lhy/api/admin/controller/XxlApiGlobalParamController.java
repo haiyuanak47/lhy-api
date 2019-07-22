@@ -11,6 +11,8 @@ import com.lhy.api.admin.core.util.tool.StringTool;
 import com.lhy.api.admin.dao.IXxlApiGlobalParamDao;
 import com.lhy.api.admin.dao.IXxlApiProjectDao;
 import com.lhy.api.admin.service.impl.LoginService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +27,9 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/globalparam")
-public class XxlApiGlobalParamController {
+public class XxlApiGlobalParamController extends BaseController{
+
+	private static Logger logger = LoggerFactory.getLogger(XxlApiGlobalParamController.class);
 
 	@Resource
 	private IXxlApiProjectDao xxlApiProjectDao;

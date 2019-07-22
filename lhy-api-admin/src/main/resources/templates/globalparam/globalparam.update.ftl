@@ -82,6 +82,7 @@
                         </div>
                         <#if globalQueryParamsList?exists>
                             <#list globalQueryParamsList as queryParam>
+                                ${queryParam.value}
                                 <div class="form-group queryParams_item" >
                                     <#--<label class="col-sm-1 control-label">参数</label>-->
                                     <div class="col-sm-2 item">

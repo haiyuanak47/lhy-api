@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author xuxueli 2015-12-19 16:13:16
  */
 @Controller
-public class IndexController {
+public class IndexController extends BaseController{
 
 	@Resource
 	private LoginService loginService;

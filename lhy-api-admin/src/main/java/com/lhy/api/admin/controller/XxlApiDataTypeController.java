@@ -30,7 +30,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/datatype")
-public class XxlApiDataTypeController {
+public class XxlApiDataTypeController extends BaseController{
 
     @Resource
     private IXxlApiDataTypeDao xxlApiDataTypeDao;

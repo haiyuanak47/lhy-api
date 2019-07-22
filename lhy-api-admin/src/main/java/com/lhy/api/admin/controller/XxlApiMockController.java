@@ -25,7 +25,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping("/mock")
-public class XxlApiMockController {
+public class XxlApiMockController extends BaseController{
 	private static Logger logger = LoggerFactory.getLogger(XxlApiMockController.class);
 
 	@Resource

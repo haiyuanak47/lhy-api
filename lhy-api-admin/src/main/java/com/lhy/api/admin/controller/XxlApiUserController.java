@@ -27,7 +27,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/user")
-public class XxlApiUserController {
+public class XxlApiUserController extends BaseController{
 
 	@Resource
 	private IXxlApiUserDao xxlApiUserDao;

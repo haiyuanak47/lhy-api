@@ -24,7 +24,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/document")
-public class XxlApiDocumentController {
+public class XxlApiDocumentController extends BaseController{
 
 	@Resource
 	private IXxlApiDocumentDao xxlApiDocumentDao;

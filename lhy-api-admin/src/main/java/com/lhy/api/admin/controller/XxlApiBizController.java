@@ -23,7 +23,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/biz")
-public class XxlApiBizController {
+public class XxlApiBizController extends BaseController{
 
     @Resource
     private IXxlApiBizDao xxlApiBizDao;
