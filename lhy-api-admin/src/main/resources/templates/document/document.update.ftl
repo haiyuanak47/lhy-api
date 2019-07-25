@@ -213,7 +213,7 @@
 
                 <#--全局请求参数-->
                 <script type="text/javascript">
-                    var projectGlobalQueryParams = '${projectGlobalQueryParamsJson}';
+                    var projectGlobalQueryParams = '${projectGlobalQueryParamsJson!""}';
                     var globalParamsJson = [];
                     <#if projectGlobalQueryParams?exists>
                     globalParamsJson = JSON.parse(projectGlobalQueryParams);
