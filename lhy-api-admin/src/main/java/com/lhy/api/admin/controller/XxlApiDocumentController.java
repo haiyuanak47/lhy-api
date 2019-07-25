@@ -147,7 +147,7 @@ public class XxlApiDocumentController extends BaseController{
 			xxlApiGlobalParam = xxlApiGlobalParamList.get(0);
 		}
 		List<Map<String, String>> projectGlobalQueryParams = (StringTool.isNotBlank(xxlApiGlobalParam.getGlobalQueryParams()))? JacksonUtil.readValue(xxlApiGlobalParam.getGlobalQueryParams(), List.class):null;
-		model.addAttribute("projectGlobalQueryParamsJson", xxlApiGlobalParam.getGlobalQueryParams());
+		model.addAttribute("projectGlobalQueryParamsJson", StringTool.isNotBlank(xxlApiGlobalParam.getGlobalQueryParams())?xxlApiGlobalParam.getGlobalQueryParams():"");
 		model.addAttribute("projectGlobalQueryParams", projectGlobalQueryParams);
 		model.addAttribute("globalQueryParams", null);
 		//响应数据类型
